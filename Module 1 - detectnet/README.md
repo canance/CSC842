@@ -8,6 +8,11 @@ This script will detect the network scope of the network in which the machine th
 ```
 usage: detectnet.py [-h] [--threads THREADS] [--out OUT] [--no-scan]
 
+This script will detect the network scope of the network in which the machine
+that is running it is attached. It will report back the hostname, interfaces,
+and list of live hosts within that range. Each interface consists of a name,
+network IP, subnet, and gateway.
+
 optional arguments:
   -h, --help         show this help message and exit
   --threads THREADS  maximum number of threads to use
@@ -32,6 +37,7 @@ This script has been tested and is working on:
 
 ### Windows
 - `ipconfig`
+
 ### Linux
 - `hostname`
 - `ip` or `ifconfig`

@@ -42,6 +42,9 @@ This script has been tested and is working on:
 - `hostname`
 - `ip` or `ifconfig`
 
+### Mac OSX
+- `hostname`
+- `ifconfig`
 
 ## Installation
 This script requires Python 3.3 or higher.  All libraries used should be included with a standard Python installation.

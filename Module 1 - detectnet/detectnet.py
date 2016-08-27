@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 
 # Cory Nance
-# detectnet.py - This script/tool will detect the network scope of the network in which the machine that is running it
-#                is attached. It will report back the network IP, subnet, gateway, and list of live hosts within that
-#                range.
+# detectnet.py - This script/tool will detect the network scope of the network in which the machine that is running it is attached.  It will report back the hostname, interfaces, and list of live hosts within that range.  Each interface consists of a name, network IP, subnet, and gateway.
 # 26 August 2016
 
 import os
@@ -274,8 +272,9 @@ def main():
     # parse args
     parser = argparse.ArgumentParser(
         description="""
-        This script/tool will detect the network scope of the network in which the machine that is running it is
-        attached. It will report back the network IP, subnet, gateway, and list of live hosts within that range.
+        This script will detect the network scope of the network in which the machine that is 
+        running it is attached.  It will report back the hostname, interfaces, and list of live hosts 
+        within that range.  Each interface consists of a name, network IP, subnet, and gateway.
         """)
     parser.add_argument('--threads', help='maximum number of threads to use', type=int, default=20)
     parser.add_argument('--out', help='send output to a text file', default=sys.stdout)

@@ -40,11 +40,12 @@ This script has been tested and is working on:
 
 ### Linux
 - `hostname`
-- `ip` or `ifconfig`
+- `ip` or (`ifconfig` and `route`)
 
 ### Mac OSX
 - `hostname`
 - `ifconfig`
+- `route`
 
 ## Installation
 This script requires Python 3.3 or higher.  All libraries used should be included with a standard Python installation.

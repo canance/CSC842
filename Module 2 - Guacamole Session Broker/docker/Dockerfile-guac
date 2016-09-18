@@ -1,0 +1,7 @@
+# source https://www.outcoldman.com/en/archive/2015/07/28/docker-images-for-home-server-part-2/
+FROM glyptodon/guacamole:latest
+
+COPY startx.sh /opt/guacamole/bin/
+RUN chmod +x /opt/guacamole/bin/startx.sh
+
+CMD ["/opt/guacamole/bin/startx.sh"]

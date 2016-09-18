@@ -1,0 +1,5 @@
+FROM python:3-onbuild
+# onbuild looks for packages to install in 'requirements.txt'
+
+MAINTAINER Cory Nance <canance@coastal.edu>
+CMD [ "python", "/app/server.py"]

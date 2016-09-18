@@ -1,0 +1,32 @@
+#-*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# modeled after https://gist.github.com/58e2885bef9f76d4d977.git
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "centos/7"
+  
+  config.vm.define :ipaserver do |ipaserver|
+    ipaserver.vm.network :forwarded_port, guest:80, host: 8080
+    ipaserver.vm.network :forwarded_port, guest: 443, host: 1443
+    ipaserver.vm.network :private_network, ip: "192.168.19.15"
+    ipaserver.vm.hostname = "ipaserver.test.net"
+    ipaserver.vm.provision :shell, path: "ipaserver.sh"
+  end
+
+  config.vm.define :client do |client|
+    client.vm.network :forwarded_port, guest: 80, host: 8888
+    client.vm.network :forwarded_port, guest: 443, host: 2443
+    client.vm.network :private_network, ip: "192.168.19.20"
+    client.vm.hostname = "client.test.net"
+    client.vm.synced_folder "../website/", "/var/www"
+    client.vm.provision :shell, path: "client.sh"
+  end
+
+  config.vm.define :vncserver do |vncserver|
+    vncserver.vm.hostname = "vncserver.test.net"
+    vncserver.vm.network :private_network, ip: "192.168.19.25"
+    vncserver.vm.provision :shell, path: "vncserver.sh"
+  end
+
+end

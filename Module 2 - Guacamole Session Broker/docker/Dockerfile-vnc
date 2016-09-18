@@ -1,0 +1,16 @@
+FROM centos:latest
+
+MAINTAINER Cory Nance <canance@coastal.edu>
+
+RUN yum install epel-release -y
+RUN yum groupinstall "Xfce" -y
+RUN yum install tigervnc-server openssh-server -y
+RUN useradd -m -p `openssl passwd password` test_user
+RUN mkdir ~test_user/.vnc && chown test_user:test_user ~test_user/.vnc
+ADD xstartup /home/test_user/.vnc/xstartup
+RUN chown test_user:test_user /home/test_user/.vnc/xstartup
+RUN chmod 750 /home/test_user/.vnc/xstartup 
+RUN ssh-keygen -A
+EXPOSE 22
+EXPOSE 5901
+CMD ["/usr/sbin/sshd", "-D"]

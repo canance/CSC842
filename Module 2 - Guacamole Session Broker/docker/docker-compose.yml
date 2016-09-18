@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  guacd:
+    image: glyptodon/guacd:latest
+    links:
+      - vnc
+      - guac
+    mem_limit: 2g
+    restart: always
+  
+  guac:
+    build:
+      context: .
+      dockerfile: Dockerfile-guac
+    ports:
+      - "8080:8080"
+    volumes:
+      - "./guac_home:/root/.guacamole"
+    mem_limit: 2g
+    restart: always
+
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile-python
+    links:
+      - vnc
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./guac_home:/etc/guacamole"
+      - "../src:/app"
+    mem_limit: 2g
+    restart: always
+
+  vnc:
+    build:
+      context: .
+      dockerfile: Dockerfile-vnc
+    mem_limit: 2g
+    restart: always

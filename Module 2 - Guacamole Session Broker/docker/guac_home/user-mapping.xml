@@ -1,0 +1,10 @@
+<user-mapping>
+   <authorize username="random_user" password="random_pass">
+       <connection name="localhost">
+           <protocol>vnc</protocol>
+           <param name="hostname">vnc</param>
+           <param name="port">5901</param>
+           <param name="password">vnc_password</param>
+       </connection>
+   </authorize>
+</user-mapping>

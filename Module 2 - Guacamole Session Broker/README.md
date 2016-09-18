@@ -20,8 +20,8 @@ $ cd docker
 $ docker-compose up
 ```
 
-Open a browser and view http://localhost:5000
-
+- Open a browser and view http://localhost:5000
+- Login with the the user name 'test_user' and password 'password'
 
 ## Future Development
 - Use kerberos authentication

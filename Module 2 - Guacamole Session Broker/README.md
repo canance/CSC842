@@ -27,7 +27,7 @@ $ docker-compose up
 - Use kerberos authentication
 - Create a [custom authenticator](http://guacamole.incubator.apache.org/doc/gug/custom-auth.html) for Guacamole
 - Add a database backend to support multiple users and multiple connections
-- Use kerberos [service-for-user-to-proxy](https://ssimo.org/blog/id_011.html) to connect to the SSH server without the uesr's password
+- Use kerberos [service-for-user-to-proxy](https://ssimo.org/blog/id_011.html) to connect to the SSH server without the user's password
 
 ## Dependencies
 - [Docker](https://www.docker.com/)

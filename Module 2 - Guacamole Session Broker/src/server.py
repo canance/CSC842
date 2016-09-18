@@ -109,21 +109,7 @@ def index():
     If it's a POST request then process the login.
     """
     if request.method == 'GET':
-        
         return app.send_static_file('login.html')
-        html = ( '<html>'
-                 '<head><title>Guacamole Login</title></head>'
-                 '<body>'
-                 '<form action="" method="POST">'
-                 'User <input type="text" name="username" /> <br />'
-                 'Password <input type="password" name="password" /> <br />'
-                 '<input type="submit" value="Login" />'
-                 '</form>'
-                 '</body>' 
-                 '</html>'
-               )
-        return html
-
     else: # request.method == 'POST'
         user = request.form['username']
         passwd = request.form['password']
